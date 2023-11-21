@@ -74,3 +74,50 @@ Clean architecture membantu memisahkan kode untuk business-logic dengan kode yan
 3. menampilkan popup setelah menekan tombol save pada tambah buku
 3. menambahkan fitur navigasi/route pada tombol tambah buku dan lihat buku di halaman utama dengan menggunakan navigator.push()
 4. membuat list untuk menyimpan buku yang dtambahkan kemudian membuat halaman baru untuk lihat list buku dg membuat file showlist.dart
+
+
+---
+## ---Tugas 9---
+---
+
+## **Pengambilan data JSON dengan/tanpa membuat model terlebih dahulu**
+Jika data JSON sederhana dan tidak memerlukan pemrosesan lanjutan, tidak perlu membuat model. Namun, jika data kompleks dan ingin dilakukan operasi lanjutan seperti pemrosesan data, analisis, atau visualisasi yang lebih kompleks, membuat model lebih disarankan
+
+## **Fungsi dari CookieRequest**
+CookieRequest berperan dalam mengatur Cookie seperti autentikasi token, mengirim dan menerima Cookie, serta memastikan penyimpanan dan transmisi Cookie yang aman. Membagikan instance CookieRequest ke semua komponen dalam aplikasi Flutter dilakukan untuk menjamin konsistensi data, menyederhanakan pengelolaan Cookie, dan mendukung pengelolaan keamanan Cookie
+
+## **Mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter**
+1. Mengambil data JSON untuk pembuatan model
+2. Ubah data menjadi objek dart 
+3. Menggunakan dan menampilkan data dalam bentuk widget flutter
+
+## **Mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter**
+1. User input data akun di aplikasi Flutter
+2. Flutter mengirimkan data akun tersebut ke server Django menggunakan HTTP request
+3. Server Django menerima data tersebut dan melakukan proses autentikasi
+4. Django mengirimkan respons ke Flutter
+5. Flutter menampilkan hasil autentikasi
+
+# **Widget yang digunakan dan fungsinya**
+1. Scaffold: membuat struktur dasar tampilan aplikasi
+2. ListView.builder: membuat daftar dinamis
+3. TextFormField: input teks dari user
+4. ElevatedButton: tombol aksi
+5. FutureBuilder: membangun UI dengan Future
+
+## **Pengimplementasian step by step**
+DJANGO
+1. Membuat aplikasi Django baru yaitu authentication
+2. Install django-cors-headers
+3. Tambahkan "authentication" dan "corsheaders" ke dalam INSTALLED_APPS, tambahkan "corsheaders.middleware.CorsMiddleware" ke dalam middleware, dan tambahkan beberapa variabel baru di settings.py
+4. Buat views dan urls baru untuk proses login dan logout di dalam aplikasi authentication dan buat routingnya
+FLUTTER
+1. Install provider dan pbp_django_auth 
+2. Ubah StatelessWidget untuk menyediakan CookieRequest menggunakan Provider
+3. Buat file bernama login.dart di dalam folder screens dan isi dengan aturan login. Modifikasi widget MaterialApp di dalam main.dart agar menampilkan LoginPage
+4. Ambil data JSON dari proyek Django dan terjemahkan ke dalam bahasa Dart lalu tambahkan ke lib/models/product.dart 
+5. Install paket "http" untuk melakukan perintah HTTP request
+6. Buat file list_product.dart di dalam folder screens dan tambahkan ke dalam widget left_drawer.dart 
+7. Buat file product_detail.dart untuk halaman detail tiap item dan lakukan routing di list_product.dart
+7. Hubungkan halaman shoplist_form.dart dengan CookieRequest
+8. Tambahkan code untuk logout di shop_card.dart

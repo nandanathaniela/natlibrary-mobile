@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:natlibrary/screens/menu.dart';
 import 'package:natlibrary/screens/shoplist_form.dart';
-import 'package:natlibrary/screens/showlist.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:natlibrary/screens/list_product.dart';
+//import 'package:natlibrary/screens/showlist.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -65,16 +67,15 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.movie),
-            title: const Text('Lihat Buku'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        ProductListPage(items: itemList)),
-              );
-            },
+              leading: const Icon(Icons.shopping_basket),
+              title: const Text('Lihat Buku'),
+              onTap: () {
+                  // Route menu ke halaman produk
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProductPage()),
+                  );
+              },
           ),
         ],
       ),
